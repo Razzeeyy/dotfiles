@@ -61,10 +61,14 @@ return function (clientkeys, clientbuttons)
                 titlebars_enabled = false
             }
         },
-        -- Set Firefox to always map on the tag named "2" on screen 1.
+        -- Set common browsers to always map on the tag named "1" on screen 1.
         {
-            rule = {
-                class = { "Firefox", "Google-chrome" }
+            rule_any = {
+                class = {
+                    "Firefox",
+                    "Google-chrome",
+                    "Chromium",
+                }
             },
             properties = {
                 screen = 1,
