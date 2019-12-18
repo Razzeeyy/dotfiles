@@ -14,7 +14,8 @@ return function (clientkeys, clientbuttons)
                 keys = clientkeys,
                 buttons = clientbuttons,
                 screen = awful.screen.preferred,
-                placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+                size_hints_honor = false,
             }
         },
         -- Floating clients.
@@ -73,6 +74,32 @@ return function (clientkeys, clientbuttons)
             properties = {
                 screen = 1,
                 tag = "1"
+            }
+        },
+        -- Code editors assigned to tag 2 screen 1
+        {
+            rule_any = {
+                class = {
+                    "Code",
+                }
+            },
+            properties = {
+                screen = 1,
+                tag = "2"
+            }
+        },
+        -- Messenger apps tag 3 screen 1
+        {
+            rule_any = {
+                class = {
+                    "discord",
+                    "TelegramDesktop",
+                    "Skype",
+                }
+            },
+            properties = {
+                screen = 1,
+                tag = "3"
             }
         },
     }
