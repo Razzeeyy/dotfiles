@@ -510,3 +510,11 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+local has_autorun, autorun = pcall(require, "autorun")
+
+if has_autorun then
+    for _, command in ipairs(autorun) do
+        awful.spawn.single_instance(command, awful.rules.rules)
+    end
+end
