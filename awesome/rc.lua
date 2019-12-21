@@ -1,3 +1,5 @@
+local compat = awesome.release == "Human after all"
+
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -82,6 +84,27 @@ awful.layout.layouts = {
 }
 -- }}}
 
+-- {{{ Helper functions
+local function client_menu_toggle_fn()
+    if not compat then
+        return function()
+            awful.menu.client_list({ theme = { width = 250 } })
+        end
+    end
+
+    local instance = nil
+
+    return function ()
+        if instance and instance.wibox.visible then
+            instance:hide()
+            instance = nil
+        else
+            instance = awful.menu.clients({ theme = { width = 250 } })
+        end
+    end
+end
+-- }}}
+
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
@@ -130,16 +153,27 @@ local tasklist_buttons = gears.table.join(
                                               if c == client.focus then
                                                   c.minimized = true
                                               else
+                                                if compat then
+                                                  -- Without this, the following
+                                                  -- :isvisible() makes no sense
+                                                  c.minimized = false
+                                                  if not c:isvisible() and c.first_tag then
+                                                      c.first_tag:view_only()
+                                                  end
+                                                  -- This will also un-minimize
+                                                  -- the client, if needed
+                                                  client.focus = c
+                                                  c:raise()
+                                                else
                                                   c:emit_signal(
                                                       "request::activate",
                                                       "tasklist",
                                                       {raise = true}
                                                   )
+                                                end
                                               end
                                           end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
+                     awful.button({ }, 3, client_menu_toggle_fn()),
                      awful.button({ }, 4, function ()
                                               awful.client.focus.byidx(1)
                                           end),
@@ -180,18 +214,26 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
-    }
+    if compat then
+        s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
+    else
+        s.mytaglist = awful.widget.taglist {
+            screen  = s,
+            filter  = awful.widget.taglist.filter.all,
+            buttons = taglist_buttons
+        }
+    end
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
+    if compat then
+        s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+    else
+        s.mytasklist = awful.widget.tasklist {
+            screen  = s,
+            filter  = awful.widget.tasklist.filter.currenttags,
+            buttons = tasklist_buttons
+        }
+    end
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -514,7 +556,17 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 local has_autorun, autorun = pcall(require, "autorun")
 
 if has_autorun then
+    local function run_once(cmd)
+        if cmd then
+            awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
+        end
+    end
+
     for _, command in ipairs(autorun) do
-        awful.spawn.single_instance(command, awful.rules.rules)
+        if compat then
+            run_once(command)
+        else
+            awful.spawn.single_instance(command, awful.rules.rules)
+        end
     end
 end
