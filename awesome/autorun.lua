@@ -1,6 +1,6 @@
 return {
     "nm-applet",
-    "x-www-browser",
+    "firefox",
     "skypeforlinux",
     "discord",
     "telegram-desktop",
