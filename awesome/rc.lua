@@ -367,7 +367,14 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Screenshot
+    awful.key({ modkey }, "Print", function() awful.spawn.with_shell("gnome-screenshot") end),
+    awful.key({ modkey, "Mod1" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --window --remove-border") end),
+    awful.key({ modkey, "Shift" }, "Print", nil, function() awful.spawn.with_shell("gnome-screenshot --area") end),
+    awful.key({ modkey, "Control" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --clipboard") end),
+    awful.key({ modkey, "Control", "Mod1" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --clipboard --window --remove-border") end),
+    awful.key({ modkey, "Control", "Shift" }, "Print", nil, function() awful.spawn.with_shell("gnome-screenshot --clipboard --area") end)
 )
 
 clientkeys = gears.table.join(
