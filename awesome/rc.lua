@@ -565,7 +565,7 @@ local has_autorun, autorun = pcall(require, "autorun")
 if has_autorun then
     local function run_once(cmd)
         if cmd then
-            awful.spawn.with_shell("pgrep -f -u $USER -x'" .. cmd .. "' || (" .. cmd .. ")")
+            awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
         end
     end
 
