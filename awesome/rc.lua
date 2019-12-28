@@ -560,20 +560,27 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-local has_autorun, autorun = pcall(require, "autorun")
 
-if has_autorun then
-    local function run_once(cmd)
-        if cmd then
-            awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
-        end
-    end
-
-    for _, command in ipairs(autorun) do
+-- {{{ Autorun
+local function run_once(cmd)
+    if cmd then
         if compat then
-            run_once(command)
+            awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
         else
             awful.spawn.single_instance(command, awful.rules.rules)
         end
     end
 end
+
+-- Common cmds to make system function well
+run_once("start-pulseaudio-x11")
+run_once("nm-applet")
+
+local has_autorun, autorun = pcall(require, "autorun")
+
+if has_autorun then
+    for _, command in ipairs(autorun) do
+        run_once(command)
+    end
+end
+-- }}}

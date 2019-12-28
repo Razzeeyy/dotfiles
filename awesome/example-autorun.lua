@@ -1,5 +1,4 @@
 return {
-    "nm-applet",
     "firefox",
     "skypeforlinux",
     "discord",
