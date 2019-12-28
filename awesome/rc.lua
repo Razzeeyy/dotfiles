@@ -575,6 +575,7 @@ end
 -- Common cmds to make system function well
 run_once("start-pulseaudio-x11")
 run_once("nm-applet")
+run_once("volumeicon")
 
 local has_autorun, autorun = pcall(require, "autorun")
 

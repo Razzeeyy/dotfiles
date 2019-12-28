@@ -1,1 +1,1 @@
-sudo apt install scrot arandr pavucontrol
+sudo apt install scrot arandr pavucontrol volumeicon-alsa
