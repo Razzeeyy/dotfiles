@@ -65,7 +65,7 @@ return function (clientkeys, clientbuttons)
                 titlebars_enabled = false
             }
         },
-        -- Set common browsers to always map on the tag named "1" on screen 1.
+        -- Set common browsers to always map on the tag named "2" on screen 1.
         {
             rule_any = {
                 class = {
@@ -76,10 +76,10 @@ return function (clientkeys, clientbuttons)
             },
             properties = {
                 screen = 1,
-                tag = "1"
+                tag = "2"
             }
         },
-        -- Code editors assigned to tag 2 screen 1
+        -- Code editors assigned to tag 3 screen 1
         {
             rule_any = {
                 class = {
@@ -88,10 +88,10 @@ return function (clientkeys, clientbuttons)
             },
             properties = {
                 screen = 1,
-                tag = "2"
+                tag = "3"
             }
         },
-        -- Messenger apps tag 3 screen 1
+        -- Messenger apps tag 4 screen 1
         {
             rule_any = {
                 class = {
@@ -103,7 +103,7 @@ return function (clientkeys, clientbuttons)
             },
             properties = {
                 screen = 1,
-                tag = "3"
+                tag = "4"
             }
         },
     }
