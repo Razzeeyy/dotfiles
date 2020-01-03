@@ -98,6 +98,7 @@ return function (clientkeys, clientbuttons)
                     "discord",
                     "TelegramDesktop",
                     "Skype",
+                    "Mattermost"
                 }
             },
             properties = {

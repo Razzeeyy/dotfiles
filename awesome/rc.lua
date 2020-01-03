@@ -571,10 +571,18 @@ run_once("nm-applet")
 run_once("volumeicon")
 
 local has_autorun, autorun = pcall(require, "autorun")
-
-if has_autorun then
+local function run_autorun()
     for _, command in ipairs(autorun) do
         run_once(command)
     end
+end
+
+if has_autorun then
+    gears.timer({
+        timeout = 5,
+        autostart = true,
+        single_shot = true,
+        callback = run_autorun
+    })
 end
 -- }}}
