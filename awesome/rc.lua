@@ -182,6 +182,9 @@ local tasklist_buttons = gears.table.join(
                                           end))
 
 local function set_wallpaper(s)
+    -- Background color
+    gears.wallpaper.set(beautiful.wallpaper_color)
+
     -- Wallpaper
     if beautiful.wallpaper then
         local wallpaper = beautiful.wallpaper
