@@ -20,6 +20,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+local screenshot = require("screenshot")
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -354,12 +356,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- Screenshot
-    awful.key({ modkey }, "Print", function() awful.spawn.with_shell("gnome-screenshot") end),
-    awful.key({ modkey, "Mod1" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --window --remove-border") end),
-    awful.key({ modkey, "Shift" }, "Print", nil, function() awful.spawn.with_shell("gnome-screenshot --area") end),
-    awful.key({ modkey, "Control" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --clipboard") end),
-    awful.key({ modkey, "Control", "Mod1" }, "Print", function() awful.spawn.with_shell("gnome-screenshot --clipboard --window --remove-border") end),
-    awful.key({ modkey, "Control", "Shift" }, "Print", nil, function() awful.spawn.with_shell("gnome-screenshot --clipboard --area") end)
+    awful.key({ modkey }, "Print", screenshot.fullscreen,
+              {description = "whole screen", group = "screenshot"}),
+    awful.key({ modkey, "Mod1" }, "Print", screenshot.window,
+              {description = "currently focused window", group = "screenshot"}),
+    awful.key({ modkey, "Shift" }, "Print", nil, screenshot.selection,
+              {description = "select region with mouse", group = "screenshot"})
 )
 
 clientkeys = gears.table.join(
