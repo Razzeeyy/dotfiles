@@ -141,8 +141,14 @@ mycalendaryear = awful.widget.calendar_popup.year { week_numbers = true }
 mytextclock = wibox.widget.textclock()
 
 local textclock_buttons = gears.table.join(
-    awful.button({ }, 1, function() mycalendarmonth:toggle() end),
-    awful.button({ }, 3, function() mycalendaryear:toggle() end)
+    awful.button({ }, 1, function() 
+        mycalendarmonth:call_calendar(0, "tr", awful.screen.focused())
+        mycalendarmonth:toggle()
+    end),
+    awful.button({ }, 3, function()
+        mycalendaryear:call_calendar(0, "tm", awful.screen.focused())
+        mycalendaryear:toggle()
+    end)
 )
 mytextclock:buttons(textclock_buttons)
 
