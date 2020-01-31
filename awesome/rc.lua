@@ -132,9 +132,19 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
+-- Calendar popup
+mycalendarmonth = awful.widget.calendar_popup.month()
+mycalendaryear = awful.widget.calendar_popup.year { week_numbers = true }
+
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+local textclock_buttons = gears.table.join(
+    awful.button({ }, 1, function() mycalendarmonth:toggle() end),
+    awful.button({ }, 3, function() mycalendaryear:toggle() end)
+)
+mytextclock:buttons(textclock_buttons)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
