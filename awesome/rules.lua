@@ -91,19 +91,44 @@ return function (clientkeys, clientbuttons)
                 tag = "3"
             }
         },
-        -- Messenger apps tag 4 screen 1
+        -- Tag 4 screen 1
         {
             rule_any = {
                 class = {
-                    "discord",
                     "TelegramDesktop",
                     "Skype",
-                    "Mattermost"
                 }
             },
             properties = {
                 screen = 1,
                 tag = "4"
+            }
+        },
+        -- Tag 5 screen 1
+        {
+            rule_any = {
+                class = {
+                    "discord",
+                }
+            },
+            properties = {
+                screen = 1,
+                tag = "5",
+                maximized = true,
+                floating = true
+            }
+        },
+        -- Tag 6 screen 1
+        {
+            rule_any = {
+                class = {
+                    "Mattermost",
+                    "zoom",
+                }
+            },
+            properties = {
+                screen = 1,
+                tag = "6"
             }
         },
     }
