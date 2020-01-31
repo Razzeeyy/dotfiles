@@ -576,6 +576,7 @@ local function run_once(cmd)
 end
 
 -- Common cmds to make system function well
+run_once("compton -f")
 run_once("start-pulseaudio-x11")
 run_once("nm-applet")
 run_once("volumeicon")

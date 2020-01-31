@@ -1,1 +1,1 @@
-sudo apt install scrot xclip arandr pavucontrol volumeicon-alsa i3lock
+sudo apt install scrot xclip arandr pavucontrol volumeicon-alsa i3lock compton
