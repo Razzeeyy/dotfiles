@@ -361,7 +361,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1" }, "Print", screenshot.window,
               {description = "currently focused window", group = "screenshot"}),
     awful.key({ modkey, "Shift" }, "Print", nil, screenshot.selection,
-              {description = "select region with mouse", group = "screenshot"})
+              {description = "select region with mouse", group = "screenshot"}),
+    -- Session locking
+    awful.key({ modkey, }, "x", function() awful.spawn.with_shell("i3lock -c 000000 -p win -e -f") end,
+              {description = "lock", group = "session"})
 )
 
 clientkeys = gears.table.join(
