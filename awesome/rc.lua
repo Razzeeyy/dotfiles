@@ -136,6 +136,12 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 mycalendarmonth = awful.widget.calendar_popup.month()
 mycalendaryear = awful.widget.calendar_popup.year { week_numbers = true }
 
+local mycalendaryear_buttons = gears.table.join(
+    awful.button({ }, 1, function() mycalendaryear:toggle() end),
+    awful.button({ }, 3, function() mycalendaryear:toggle() end)
+)
+mycalendaryear:buttons(mycalendaryear_buttons)
+
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
