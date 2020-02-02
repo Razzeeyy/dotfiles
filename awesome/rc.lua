@@ -382,7 +382,14 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "Print", nil, screenshot.selection,
               {description = "select region with mouse", group = "screenshot"}),
     -- Session locking
-    awful.key({ modkey, }, "x", function() awful.spawn.with_shell("i3lock -c 000000 -p win -e -f") end,
+    awful.key({ modkey, }, "x", 
+        function()
+            -- resetting keyboard layout to default before locking the screen,
+            -- or else we'll be inadvertently locked out of the system
+            -- because there is no way to switch layouts during lock screen
+            awesome.xkb_set_layout_group(0)
+            awful.spawn.with_shell("i3lock -c 000000 -p win -e -f")
+        end,
               {description = "lock", group = "session"})
 )
 
