@@ -586,7 +586,7 @@ local function run_once(cmd)
         if compat then
             awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
         else
-            awful.spawn.single_instance(command, awful.rules.rules)
+            awful.spawn.single_instance(cmd, awful.rules.rules)
         end
     end
 end
