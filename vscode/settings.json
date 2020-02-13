@@ -6,6 +6,8 @@
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "editor.fontFamily": "Hack, monospace",
+    "editor.fontLigatures": false,
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "editor.renderControlCharacters": true,
