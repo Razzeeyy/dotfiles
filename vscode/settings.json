@@ -1,6 +1,4 @@
 {
-    "editor.accessibilityPageSize": 0,
-    "editor.accessibilitySupport": "off",
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.codeActionsOnSave": {
