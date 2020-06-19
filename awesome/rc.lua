@@ -387,8 +387,6 @@ globalkeys = gears.table.join(
             -- or else we'll be inadvertently locked out of the system
             -- because there is no way to switch layouts during lock screen
             awesome.xkb_set_layout_group(0)
-            -- set different root cursor just for fun
-            root.cursor("crosshair")
             -- and finally lock the screen
             awful.spawn.with_shell("i3lock -c 000000 -p default -e -f")
         end,
