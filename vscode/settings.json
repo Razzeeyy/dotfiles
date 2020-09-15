@@ -23,9 +23,12 @@
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "window.restoreWindows": "none",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
     "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": false
 }
