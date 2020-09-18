@@ -1,12 +1,15 @@
 {
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.autoClosingBrackets": "never",
     "editor.autoClosingQuotes": "never",
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
+    "editor.detectIndentation": false,
     "editor.fontFamily": "Hack, monospace",
     "editor.fontLigatures": false,
     "editor.fontSize": 14,
+    "editor.insertSpaces": false,
     "editor.minimap.enabled": false,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
@@ -20,6 +23,8 @@
     "explorer.sortOrder": "default",
     "files.autoSave": "onWindowChange",
     "files.autoSaveDelay": 1000,
+    "files.insertFinalNewline": true,
+    "languageStylus.useSeparator": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "window.restoreWindows": "none",
@@ -27,8 +32,5 @@
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
     "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": false
+    "workbench.startupEditor": "none"
 }
