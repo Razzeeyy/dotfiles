@@ -24,6 +24,7 @@
     "files.autoSave": "onWindowChange",
     "files.autoSaveDelay": 1000,
     "files.insertFinalNewline": true,
+    "git.autofetch": false,
     "languageStylus.useSeparator": false,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
