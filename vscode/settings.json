@@ -33,5 +33,11 @@
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
     "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"vetur.format.options.useTabs": true,
+	"vetur.format.styleInitialIndent": true,
+	"vetur.format.scriptInitialIndent": true,
+	"prettier.useTabs": true,
+	"prettier.vueIndentScriptAndStyle": true,
+	"editor.formatOnType": true
 }
