@@ -14,7 +14,7 @@
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
     "editor.roundedSelection": false,
-    "editor.rulers": [],
+    "editor.rulers": [80, 100],
     "editor.showFoldingControls": "always",
     "editor.suggest.localityBonus": true,
     "editor.wordWrap": "off",
