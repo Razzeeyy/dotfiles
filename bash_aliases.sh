@@ -8,3 +8,7 @@ export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\
 
 alias git_remove_merged_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias git_remove_deleted_branches='git remote prune origin'
+
+alias git_log='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+
+alias git_pull='git checkout master && git pull && git checkout release && git pull'
