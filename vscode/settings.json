@@ -39,5 +39,6 @@
 	"vetur.format.scriptInitialIndent": true,
 	"prettier.useTabs": true,
 	"prettier.vueIndentScriptAndStyle": true,
-	"editor.formatOnType": true
+	"editor.formatOnType": true,
+	"git.inputValidation": "off"
 }
