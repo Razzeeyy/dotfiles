@@ -40,5 +40,8 @@
 	"prettier.useTabs": true,
 	"prettier.vueIndentScriptAndStyle": true,
 	"editor.formatOnType": true,
-	"git.inputValidation": "off"
+	"git.inputValidation": "off",
+	"javascript.suggest.autoImports": false,
+	"typescript.suggest.autoImports": false,
+	"vetur.completion.autoImport": false
 }
