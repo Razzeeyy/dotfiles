@@ -1,0 +1,24 @@
+{
+	"Vue Goods": {
+		"prefix": "vg",
+		"body": [
+			"<template lang=\"pug\">",
+			"\t$1",
+			"</template>",
+			"",
+			"<script lang=\"ts\">",
+			"\timport { Vue, Component, Prop } from 'vue-property-decorator';",
+			"",
+			"\t@Component({})",
+			"\texport default class ${1/\\.*(\\w*)-*/${1:/capitalize}/gi} extends Vue {",
+			"\t\t$0",
+			"\t}",
+			"</script>",
+			"",
+			"<style lang=\"stylus\">",
+			"\t$1",
+			"</style>"
+		],
+		"description": "Vue Goods Class"
+	}
+}
