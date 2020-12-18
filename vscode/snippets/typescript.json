@@ -3,7 +3,7 @@
 		"prefix": "vp",
 		"body": [
 			"@Prop($1) $2?: $3;",
-			"\t\t$0"
+			"$0"
 		],
 		"description": "Vue Prop"
 	},
@@ -12,7 +12,7 @@
 		"prefix": "vpd",
 		"body": [
 			"@Prop({ type: $1, default: $2 }) $3!: $4;",
-			"\t\t$0"
+			"$0"
 		],
 		"description": "Vue Prop Default"
 	},
@@ -21,7 +21,7 @@
 		"prefix": "vpr",
 		"body": [
 			"@Prop({ type: $1, required: true }) $2!: $3;",
-			"\t\t$0"
+			"$0"
 		],
 		"description": "Vue Prop Required"
 	}

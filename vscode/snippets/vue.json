@@ -4,6 +4,7 @@
 		"body": [
 			"<template lang=\"pug\">",
 			"\t$1",
+			"\t\t",
 			"</template>",
 			"",
 			"<script lang=\"ts\">",
@@ -17,6 +18,7 @@
 			"",
 			"<style lang=\"stylus\">",
 			"\t$1",
+			"\t\tpass",
 			"</style>"
 		],
 		"description": "Vue Goods Class"
