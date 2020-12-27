@@ -2,8 +2,7 @@
 	"Vue Prop": {
 		"prefix": "vp",
 		"body": [
-			"@Prop($1) readonly $2?: ${1/(.*)/${1:/downcase}/gi};",
-			"$0"
+			"@Prop($1) readonly $2?: ${1/(.*)/${1:/downcase}/gi};"
 		],
 		"description": "Vue Prop"
 	},
@@ -11,8 +10,7 @@
 	"Vue Prop Default": {
 		"prefix": "vpd",
 		"body": [
-			"@Prop({ type: $1, default: $2 }) readonly $3!: ${1/(.*)/${1:/downcase}/gi};",
-			"$0"
+			"@Prop({ type: $1, default: $2 }) readonly $3!: ${1/(.*)/${1:/downcase}/gi};"
 		],
 		"description": "Vue Prop Default"
 	},
@@ -20,8 +18,7 @@
 	"Vue Prop Required": {
 		"prefix": "vpr",
 		"body": [
-			"@Prop({ type: $1, required: true }) readonly $2!: ${1/(.*)/${1:/downcase}/gi};",
-			"$0"
+			"@Prop({ type: $1, required: true }) readonly $2!: ${1/(.*)/${1:/downcase}/gi};"
 		],
 		"description": "Vue Prop Required"
 	}
