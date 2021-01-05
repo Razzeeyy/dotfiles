@@ -32,6 +32,8 @@
     "files.insertFinalNewline": true,
     "git.autofetch": false,
     "git.inputValidation": "off",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.views.lineHistory.enabled": true,
     "javascript.suggest.autoImports": false,
     "languageStylus.useBuiltinFunctions": false,
     "languageStylus.useSeparator": false,
