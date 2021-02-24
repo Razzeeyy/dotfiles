@@ -47,9 +47,9 @@
     "vetur.format.scriptInitialIndent": true,
     "vetur.format.styleInitialIndent": true,
     "window.restoreWindows": "none",
-    "window.zoomLevel": 0,
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
+    "workbench.editor.wrapTabs": true,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none"
 }
