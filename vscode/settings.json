@@ -27,7 +27,7 @@
     "editor.suggest.localityBonus": true,
     "editor.wordWrap": "off",
     "editor.wordWrapColumn": 80,
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 1,
     "explorer.sortOrder": "default",
     "extensions.ignoreRecommendations": true,
     "files.autoSave": "onWindowChange",
@@ -36,7 +36,6 @@
     "git.autofetch": false,
     "git.inputValidation": "off",
     "gitlens.codeLens.enabled": false,
-    "gitlens.views.lineHistory.enabled": true,
     "languageStylus.useBuiltinFunctions": false,
     "languageStylus.useSeparator": false,
     "prettier.useTabs": true,
@@ -49,7 +48,9 @@
     "window.restoreWindows": "none",
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
-    "workbench.editor.wrapTabs": true,
-    "workbench.sideBar.location": "right",
-    "workbench.startupEditor": "none"
+    "workbench.editor.wrapTabs": false,
+    "workbench.sideBar.location": "left",
+	"workbench.startupEditor": "none",
+	"terminal.integrated.fontSize": 12,
+	"scm.inputFontSize": 12
 }
