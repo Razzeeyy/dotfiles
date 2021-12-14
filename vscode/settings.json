@@ -44,6 +44,7 @@
     "scm.inputFontSize": 12,
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
+	"telemetry.telemetryLevel": "off",
     "terminal.integrated.fontSize": 12,
     "vetur.format.options.useTabs": true,
     "vetur.format.scriptInitialIndent": true,
