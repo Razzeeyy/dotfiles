@@ -10,6 +10,7 @@ alias git_remove_merged_branches='git branch --merged | egrep -v "(^\*|master|re
 alias git_remove_deleted_branches='git remote prune origin'
 
 alias git_pull='git checkout master && git pull'
+alias git_push='git push --no-verify'
 alias git_fetch='git fetch --all'
 alias git_log='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
