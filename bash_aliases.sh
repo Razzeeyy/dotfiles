@@ -14,5 +14,7 @@ alias git_push='git push --no-verify'
 alias git_fetch='git fetch --all'
 alias git_log='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
+alias deno_fmt='deno fmt --options-use-tabs --options-single-quote --options-line-width 120 --ignore=node_modules'
+
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
