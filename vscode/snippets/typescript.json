@@ -21,5 +21,13 @@
 			"@Prop({ type: $1, required: true }) readonly $2!: ${1/(.*)/${1:/downcase}/gi};"
 		],
 		"description": "Vue Prop Required"
+	},
+
+	"Prettier Ignore": {
+		"prefix": "/pi",
+		"body": [
+			"// prettier-ignore"
+		],
+		"description": "Insert prettier ignore directive"
 	}
 }
