@@ -7,7 +7,7 @@
     },
     "editor.copyWithSyntaxHighlighting": false,
     "editor.detectIndentation": false,
-    "editor.fontFamily": "Hack, monospace",
+    "editor.fontFamily": "Hack, PT Mono, monospace",
     "editor.fontLigatures": false,
     "editor.fontSize": 14,
     "editor.formatOnType": true,
@@ -25,9 +25,16 @@
     ],
     "editor.showFoldingControls": "always",
     "editor.suggest.localityBonus": true,
-    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": true,
+	"editor.unicodeHighlight.allowedLocales": {
+		"_os": true,
+		"_vscode": true,
+		"en": true,
+		"ru": true
+	},
     "editor.wordWrap": "off",
     "editor.wordWrapColumn": 80,
+	"explorer.confirmDelete": false,
     "explorer.openEditors.visible": 1,
     "explorer.sortOrder": "default",
     "extensions.ignoreRecommendations": true,
@@ -53,6 +60,22 @@
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.editor.restoreViewState": false,
     "workbench.editor.wrapTabs": false,
+	"workbench.iconTheme": null,
     "workbench.sideBar.location": "left",
-    "workbench.startupEditor": "none"
+	"workbench.startupEditor": "none",
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
