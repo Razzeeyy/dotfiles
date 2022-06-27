@@ -589,7 +589,7 @@ local function run_once(cmd)
 end
 
 -- Common cmds to make system function well
-run_once("compton")
+run_once("picom")
 run_once("start-pulseaudio-x11")
 run_once("nm-applet")
 run_once("volumeicon")
