@@ -20,4 +20,4 @@ alias git_log='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Cre
 alias deno_fmt='deno fmt --options-use-tabs --options-single-quote --options-line-width 120 --ignore=node_modules'
 
 export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/bin:$DENO_INSTALL/bin:$PATH"

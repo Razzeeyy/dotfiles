@@ -124,6 +124,7 @@ return function (clientkeys, clientbuttons)
                 class = {
                     "Mattermost",
                     "zoom",
+                    "Microsoft Teams - Preview",
                 }
             },
             properties = {
