@@ -9,12 +9,17 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
+local colors = {
+	primary = "#721CA6",
+	attention = "#F1222E",
+}
+
 local theme = {}
 
 theme.font          = "sans 8"
 
 theme.bg_normal     = "#222222"
-theme.bg_focus      = "#f65700"
+theme.bg_focus      = colors.primary
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -27,8 +32,8 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
-theme.border_focus  = "#f65700"
-theme.border_marked = "#91231c"
+theme.border_focus  = colors.primary
+theme.border_marked = colors.attention
 
 -- There are other variable sets
 -- overriding the default one when
