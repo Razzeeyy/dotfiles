@@ -1,9 +1,3 @@
-local compat = awesome.release == "Human after all"
-
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
-pcall(require, "luarocks.loader")
-
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -90,27 +84,6 @@ awful.layout.layouts = {
 }
 -- }}}
 
--- {{{ Helper functions
-local function client_menu_toggle_fn()
-    if not compat then
-        return function()
-            awful.menu.client_list({ theme = { width = 250 } })
-        end
-    end
-
-    local instance = nil
-
-    return function ()
-        if instance and instance.wibox.visible then
-            instance:hide()
-            instance = nil
-        else
-            instance = awful.menu.clients({ theme = { width = 250 } })
-        end
-    end
-end
--- }}}
-
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
@@ -179,27 +152,14 @@ local tasklist_buttons = gears.table.join(
                                               if c == client.focus then
                                                   c.minimized = true
                                               else
-                                                if compat then
-                                                  -- Without this, the following
-                                                  -- :isvisible() makes no sense
-                                                  c.minimized = false
-                                                  if not c:isvisible() and c.first_tag then
-                                                      c.first_tag:view_only()
-                                                  end
-                                                  -- This will also un-minimize
-                                                  -- the client, if needed
-                                                  client.focus = c
-                                                  c:raise()
-                                                else
                                                   c:emit_signal(
                                                       "request::activate",
                                                       "tasklist",
                                                       {raise = true}
                                                   )
-                                                end
                                               end
                                           end),
-                     awful.button({ }, 3, client_menu_toggle_fn())
+                     awful.button({ }, 3, function() awful.menu.client_list({ theme = { width = 250 } }) end)
                 )
 
 local function set_wallpaper(s)
@@ -233,26 +193,18 @@ awful.screen.connect_for_each_screen(function(s)
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
     -- Create a taglist widget
-    if compat then
-        s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
-    else
-        s.mytaglist = awful.widget.taglist {
-            screen  = s,
-            filter  = awful.widget.taglist.filter.all,
-            buttons = taglist_buttons
-        }
-    end
+    s.mytaglist = awful.widget.taglist {
+        screen  = s,
+        filter  = awful.widget.taglist.filter.all,
+        buttons = taglist_buttons
+    }
 
     -- Create a tasklist widget
-    if compat then
-        s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-    else
-        s.mytasklist = awful.widget.tasklist {
-            screen  = s,
-            filter  = awful.widget.tasklist.filter.currenttags,
-            buttons = tasklist_buttons
-        }
-    end
+    s.mytasklist = awful.widget.tasklist {
+        screen  = s,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons
+    }
 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -580,11 +532,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- {{{ Autorun
 local function run_once(cmd)
     if cmd then
-        if compat then
-            awful.spawn.with_shell("pgrep -f -u $USER -x '" .. cmd .. "' || (" .. cmd .. ")")
-        else
-            awful.spawn.single_instance(cmd, awful.rules.rules)
-        end
+        awful.spawn.single_instance(cmd, awful.rules.rules)
     end
 end
 
