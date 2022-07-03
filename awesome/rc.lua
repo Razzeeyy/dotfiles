@@ -537,10 +537,13 @@ local function run_once(cmd)
 end
 
 -- Common cmds to make system function well
+awful.util.spawn("xrandr --output DVI-D-1 --left-of DVI-I-1 --output DVI-I-1 --primary")
+
 run_once("picom")
 run_once("start-pulseaudio-x11")
 run_once("nm-applet")
 run_once("volumeicon")
+run_once("numlockx on")
 
 local has_autorun, autorun = pcall(require, "autorun")
 local function run_autorun()
