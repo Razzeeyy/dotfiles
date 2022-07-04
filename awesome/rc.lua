@@ -330,7 +330,7 @@ globalkeys = gears.table.join(
               {description = "whole screen", group = "screenshot"}),
     awful.key({ modkey, "Mod1" }, "Print", screenshot.window,
               {description = "currently focused window", group = "screenshot"}),
-    awful.key({ modkey, "Shift" }, "Print", nil, screenshot.selection,
+    awful.key({ modkey, "Shift" }, "s", nil, screenshot.selection,
               {description = "select region with mouse", group = "screenshot"}),
     -- Session locking
     awful.key({ modkey, }, "x", 
@@ -352,7 +352,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
