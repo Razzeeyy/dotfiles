@@ -47,10 +47,6 @@ end
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
 
--- Limits the size of notification icons
--- HACK, because simply setting `naughty.config.defaults.icon_size` doesn't work
-require("my-libs.hack-fix-icon-size")(naughty)
-
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
