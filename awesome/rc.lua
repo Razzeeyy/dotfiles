@@ -1,13 +1,11 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
-local naughty = require("naughty")
+require("notifications")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -15,32 +13,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
 local screenshot = require("screenshot")
-
-
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
-        in_error = false
-    end)
-end
--- }}}
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -526,25 +498,25 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 -- {{{ Autorun
-local function run_once(cmd)
+local function once(cmd)
     if cmd then
-        awful.spawn.single_instance(cmd, awful.rules.rules)
+        awful.spawn.once(cmd, awful.rules.rules)
     end
 end
 
 -- Common cmds to make system function well
 awful.util.spawn("xrandr --output DVI-D-1 --left-of DVI-I-1 --output DVI-I-1 --primary")
 
-run_once("picom")
-run_once("start-pulseaudio-x11")
-run_once("nm-applet")
-run_once("volumeicon")
-run_once("numlockx on")
+once("picom")
+once("start-pulseaudio-x11")
+once("nm-applet")
+once("volumeicon")
+once("numlockx on")
 
 local has_autorun, autorun = pcall(require, "autorun")
 local function run_autorun()
     for _, command in ipairs(autorun) do
-        run_once(command)
+        once(command)
     end
 end
 
