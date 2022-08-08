@@ -1,4 +1,5 @@
-sudo apt install \
+sudo apt install -y \
 fonts-hack \
 network-manager-openvpn-gnome \
-numlockx
+numlockx \
+bash-completion
