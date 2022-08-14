@@ -76,5 +76,6 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"redhat.telemetry.enabled": false,
-	"scm.showActionButton": false
+	"scm.showActionButton": false,
+	"git.mergeEditor": false
 }
