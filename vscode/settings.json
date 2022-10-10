@@ -77,5 +77,8 @@
 	},
 	"redhat.telemetry.enabled": false,
 	"scm.showActionButton": false,
-	"git.mergeEditor": false
+	"git.mergeEditor": false,
+	"terminal.integrated.enablePersistentSessions": false,
+	"terminal.integrated.persistentSessionReviveProcess": "never",
+	"terminal.external.windowsExec": "C:\\Program Files\\Git\\bin\\sh.exe --login"
 }
